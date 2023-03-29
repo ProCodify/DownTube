@@ -1,11 +1,9 @@
 {
-  "name": "ytc-downloader",
+  "name": "yt-downloader",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "ffmpeg-static": "^5.1.0",
-    "fluent-ffmpeg": "^2.1.2",
     "ytdl-core": "^4.11.2",
     "ytpl": "^2.3.0"
   }
