@@ -9,7 +9,6 @@ createDirIfNotExist("./downloads");
 const downloadVideo = (videoUrl, videoTitle, author) => {
   try {
     author && createDirIfNotExist(`./downloads/${author}`);
-
     const output = path.resolve(
       path.join(process.cwd(), "downloads", author, (videoTitle += ".mp3"))
     );
