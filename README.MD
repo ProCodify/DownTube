@@ -1,17 +1,13 @@
-# YT-Downloader
+# YTC
 
-This GitHub project is designed to download all videos from a given YouTube playlist or channel link and convert them to MP3 format. This allows users to easily listen to their favorite YouTube content on the go, without having to rely on an internet connection. The project is open-source and easy to us
+YTC is a cli package that download your favorite youtube song/playlist directly to mp3 format.
 
-## Prerequisite
-
-- [node.js](https://nodejs.org/en)
+NOTE: songs are directly save in your machine download folder
 
 ## Installation
 
-1. `git clone https://github.com/realDarkCode/yt-downloader.git`
-1. `cd yt-downloader`
-1. `npm install`
+1. `npm install -g ytc`
 
 ## Usages
 
-- `node index.js [playlist or channel link]`
+- `ytc [playlist or channel link]`
