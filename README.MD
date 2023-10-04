@@ -1,13 +1,13 @@
-# YTC
+# DownTube
 
-YTC is a cli package that download your favorite youtube song/playlist directly to mp3 format.
+DownTube is a cli package that download your favorite youtube song/playlist directly to mp3 format.
 
 NOTE: songs are directly save in your machine download folder
 
 ## Installation
 
-1. `npm install -g ytc`
+1. `npm install -g downtube`
 
 ## Usages
 
-- `ytc [playlist or channel link]`
+- `downtube [playlist or channel link]`

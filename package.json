@@ -1,10 +1,10 @@
 {
-  "name": "ytc",
+  "name": "downtube",
   "version": "0.1.0",
   "main": "index.js",
   "license": "MIT",
   "bin": {
-    "ytc": "index.js"
+    "downtube": "index.js"
   },
   "dependencies": {
     "ytdl-core": "^4.11.5",
