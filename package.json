@@ -1,8 +1,11 @@
 {
-  "name": "yt-downloader",
-  "version": "1.0.0",
+  "name": "ytc-downloader",
+  "version": "0.1.0",
   "main": "index.js",
   "license": "MIT",
+  "bin": {
+    "ytc": "index.js"
+  },
   "dependencies": {
     "ytdl-core": "^4.11.5",
     "ytpl": "^2.3.0"

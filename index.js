@@ -1,28 +1,22 @@
-const { downloadVideo } = require("./youtube");
+#! /usr/bin/env node
+const {
+  downloadASingleVideo,
+  downloadAllVideoFromPlaylist,
+} = require("./youtube");
 const ytdl = require("ytdl-core");
-
-// const ytpl = require("ytpl");
-
-// (async () => {
-//   const playlist = await ytpl(process.argv[2]);
-//   playlist.items.map((video) => {
-//     downloadVideo(
-//       video.shortUrl,
-//       video.title.replace(/\s|\|/g, "_"),
-//       playlist.author.name
-//     );
-//   });
-// })();
+const ytpl = require("ytpl");
 
 (async () => {
-  const url = process.argv[2];
+  const CONTENT_URL = process.argv[2];
 
-  const isValidUrl = ytdl.validateURL(url);
+  const isValidPlaylistId = ytpl.validateID(CONTENT_URL);
+  const isValidVideoId = ytdl.validateURL(CONTENT_URL);
 
-  if (!isValidUrl) throw new Error("Invalid video link provided.");
-  const {
-    videoDetails: { title, author },
-  } = await ytdl.getBasicInfo(url);
-
-  downloadVideo(url, title?.replace(/\s|\|/g, "_"), author.name);
+  if (isValidPlaylistId) {
+    downloadAllVideoFromPlaylist(CONTENT_URL);
+  } else if (isValidVideoId) {
+    downloadASingleVideo(CONTENT_URL);
+  } else {
+    throw new Error("Invalid Playlist or Video link");
+  }
 })();

@@ -1,16 +1,22 @@
 const ytdl = require("ytdl-core");
+const ytpl = require("ytpl");
 const readline = require("readline");
 const path = require("path");
 const fs = require("fs");
 const { createDirIfNotExist } = require("./util");
 
-createDirIfNotExist("./downloads");
+const ROOT_PATH = `${process.env.USERPROFILE}/Downloads`;
+
+createDirIfNotExist(ROOT_PATH);
 
 const downloadVideo = (videoUrl, videoTitle, author) => {
   try {
-    author && createDirIfNotExist(`./downloads/${author}`);
+    const CONTENT_PATH = `${ROOT_PATH}/${author}`;
+
+    author && createDirIfNotExist(CONTENT_PATH);
+
     const output = path.resolve(
-      path.join(process.cwd(), "downloads", author, (videoTitle += ".mp3"))
+      path.join(CONTENT_PATH, (videoTitle += ".mp3"))
     );
 
     const video = ytdl(videoUrl, {
@@ -42,4 +48,22 @@ const downloadVideo = (videoUrl, videoTitle, author) => {
   }
 };
 
-module.exports = { downloadVideo };
+const downloadASingleVideo = async (url) => {
+  const {
+    videoDetails: { title, author },
+  } = await ytdl.getBasicInfo(url);
+
+  downloadVideo(url, title.replace(/\s\|/g, "_"), author.name);
+};
+
+const downloadAllVideoFromPlaylist = async (url) => {
+  const playlist = await ytpl(url);
+  playlist.items.map((video) => {
+    downloadVideo(
+      video.shortUrl,
+      video.title.replace(/\s|\|/g, "_"),
+      playlist.author.name
+    );
+  });
+};
+module.exports = { downloadASingleVideo, downloadAllVideoFromPlaylist };
