@@ -5,4 +5,4 @@ const sleep = (ms = 1000) =>
     }, ms);
   });
 
-export { sleep };
+module.exports = { sleep };

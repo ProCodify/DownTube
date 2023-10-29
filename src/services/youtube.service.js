@@ -1,8 +1,8 @@
-import fs from "fs";
-import path from "path";
-import readline from "readline";
-import ytdl from "ytdl-core";
-import ytpl from "ytpl";
+const fs = require("fs");
+const path = require("path");
+const readline = require("readline");
+const ytdl = require("ytdl-core");
+const ytpl = require("ytpl");
 
 const downloadSingleVideo = (
   videoUrl,
@@ -91,7 +91,7 @@ const isValidPlaylistId = async (url) => {
 const isValidVideoId = (url) => {
   return ytdl.validateURL(url);
 };
-export default {
+module.exports = {
   downloadSingleVideo,
   getAllVideoFromPlaylist,
   getSingleVideoInfo,

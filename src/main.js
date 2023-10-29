@@ -1,8 +1,8 @@
-import path from "path";
-import { takeUserInput } from "./cli/input.cli.js";
-import ROOT_PATH from "./services/filePath.service.js";
-import youtubeService from "./services/youtube.service.js";
-import utils from "./utils/utils.js";
+const path = require("path");
+const { takeUserInput } = require("./cli/input.cli.js");
+const ROOT_PATH = require("./services/filePath.service.js");
+const youtubeService = require("./services/youtube.service.js");
+const utils = require("./utils/utils.js");
 
 function* emptyLoopGenerator(ends) {
   for (let i = 0; i <= ends; i++) {
@@ -52,24 +52,6 @@ const main = async () => {
         filter: contentFilter,
       });
     }
-
-    // await Promise.all(
-    //   items.map(async (video, index) => {
-    //     const filePath = path.join(
-    //       playlistPath,
-    //       utils.sanitizeFileName(video.title)
-    //     );
-    //     console.log(
-    //       `Downloading: [${index + 1}/${
-    //         items.length
-    //       }] - ${utils.sanitizeFileName(video.title)} `
-    //     );
-    //     await youtubeService.downloadSingleVideo(video.shortUrl, filePath, {
-    //       fileExtension: contentExt,
-    //       filter: contentFilter,
-    //     });
-    //   })
-    // );
     console.log(`Content saved at ${playlistPath}`);
   } else if (contentType === "video") {
     const { author, videoUrl, title } = await youtubeService.getSingleVideoInfo(
@@ -81,7 +63,7 @@ const main = async () => {
 
     const filePath = path.join(channelPath, utils.sanitizeFileName(title));
     console.log(`Downloading:  ${utils.sanitizeFileName(title)} `);
-    youtubeService.downloadSingleVideo(videoUrl, filePath, {
+    await youtubeService.downloadSingleVideo(videoUrl, filePath, {
       fileExtension: contentExt,
       filter: contentFilter,
     });
@@ -91,4 +73,4 @@ const main = async () => {
   }
 };
 
-export default main;
+module.exports = main;

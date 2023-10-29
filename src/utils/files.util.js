@@ -1,4 +1,4 @@
-import fs from "fs";
+const fs = require("fs");
 
 const createDirIfNotExist = (dirPath) => {
   if (!fs.existsSync(dirPath)) {
@@ -9,4 +9,4 @@ const createDirIfNotExist = (dirPath) => {
 const sanitizeFileName = (name) => {
   return name.replace(/[-._!"`'#%&,:;<>=@{}~\$\(\)\*\+\/\\\?\[\]\^\|]+/g, "");
 };
-export { createDirIfNotExist, sanitizeFileName };
+module.exports = { createDirIfNotExist, sanitizeFileName };

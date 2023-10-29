@@ -1,8 +1,8 @@
-import { createDirIfNotExist, sanitizeFileName } from "./files.util.js";
-import generateIntroText from "./intro.util.js";
-import { sleep } from "./time.util.js";
+const { createDirIfNotExist, sanitizeFileName } = require("./files.util.js");
+const generateIntroText = require("./intro.util.js");
+const { sleep } = require("./time.util.js");
 
-export default {
+module.exports = {
   createDirIfNotExist,
   sleep,
   generateIntroText,

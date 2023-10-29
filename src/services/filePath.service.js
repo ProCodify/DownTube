@@ -1,5 +1,5 @@
-import path from "path";
-import utils from "../utils/utils.js";
+const path = require("path");
+const utils = require("../utils/utils.js");
 
 const USER_DOWNLOAD_PATH = `${process.env.USERPROFILE}/Downloads`;
 const ROOT_PATH = path.join(USER_DOWNLOAD_PATH, "DownTube");
@@ -12,4 +12,4 @@ try {
   process.exit(1);
 }
 
-export default ROOT_PATH;
+module.exports = ROOT_PATH;

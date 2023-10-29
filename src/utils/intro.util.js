@@ -1,5 +1,5 @@
-import figlet from "figlet";
-import gradient from "gradient-string";
+const figlet = require("figlet");
+const gradient = require("gradient-string");
 const generateIntroText = () => {
   return gradient.instagram.multiline(
     figlet.textSync("DownTube", {
@@ -9,4 +9,4 @@ const generateIntroText = () => {
   );
 };
 
-export default generateIntroText;
+module.exports = generateIntroText;

@@ -1,8 +1,6 @@
-import chalk from "chalk";
-
-import inquirer from "inquirer";
-
-import youtubeService from "../services/youtube.service.js";
+const chalk = require("chalk");
+const inquirer = require("inquirer");
+const youtubeService = require("../services/youtube.service.js");
 
 const takeUserInput = async () => {
   let contentType = "playlist";
@@ -44,4 +42,4 @@ const takeUserInput = async () => {
   return { contentUrl, contentType, contentFilter, contentExt };
 };
 
-export { takeUserInput };
+module.exports = { takeUserInput };

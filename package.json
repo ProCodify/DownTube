@@ -1,20 +1,28 @@
 {
   "name": "downtube",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "index.js",
   "license": "MIT",
   "bin": {
     "downtube": "index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "pkg ."
   },
-  "type": "module",
+  "pkg": {
+    "assets": [
+      "node_modules/**/*",
+      "src/**/*",
+      "src/main.js"
+    ],
+    "outputPath": "dist"
+  },
   "dependencies": {
-    "chalk": "^5.3.0",
+    "chalk": "^4.1.2",
     "figlet": "^1.7.0",
     "gradient-string": "^2.0.2",
-    "inquirer": "^9.2.11",
+    "inquirer": "^8.2.6",
     "ytdl-core": "^4.11.5",
     "ytpl": "^2.3.0"
   }
