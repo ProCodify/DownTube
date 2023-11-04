@@ -7,6 +7,6 @@ const createDirIfNotExist = (dirPath) => {
 };
 
 const sanitizeFileName = (name) => {
-  return name.replace(/[-._!"`'#%&,:;<>=@{}~\$\(\)\*\+\/\\\?\[\]\^\|]+/g, "");
+  return name.replace(/[.!"`'<>={}~\$\(\)\*\+\/\\\?\^\|]+/g, " ");
 };
 module.exports = { createDirIfNotExist, sanitizeFileName };

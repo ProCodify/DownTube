@@ -3,6 +3,7 @@ const path = require("path");
 const readline = require("readline");
 const ytdl = require("ytdl-core");
 const ytpl = require("ytpl");
+const utils = require("../utils/utils");
 
 const downloadSingleVideo = (
   videoUrl,
@@ -10,6 +11,7 @@ const downloadSingleVideo = (
   config = {
     fileExtension: ".mp3",
     filter: "audioonly",
+    index: 0,
   }
 ) => {
   return new Promise((resolve, reject) => {
@@ -21,24 +23,39 @@ const downloadSingleVideo = (
       const video = ytdl(videoUrl, {
         filter: config?.filter || "audioonly",
       });
+      const index = config?.index || 0;
 
       video.pipe(fs.createWriteStream(output));
-      video.once("info", () => {});
+      video.once("info", (info) => {
+        const {
+          videoDetails: { title, lengthSeconds },
+        } = info;
+
+        console.log(
+          `Downloading: ${index + 1}. [${utils.secondsToDuration(
+            lengthSeconds
+          )}] - ${utils.sanitizeFileName(title)}`
+        );
+      });
       video.on("progress", (chunkLength, downloaded, total) => {
-        const percent = downloaded / total;
+        const percent =
+          `${((downloaded / total) * 100).toFixed(2)}`.padStart(5, 0) + "%";
+
         readline.cursorTo(process.stdout, 0);
-        process.stdout.write(`${(percent * 100).toFixed(2)}% downloaded `);
+        process.stdout.write(`Downloaded: ${percent} `);
+
+        process.stdout.write(utils.generateProgressBar(downloaded, total, 25));
         process.stdout.write(
-          `(${(downloaded / 1024 / 1024).toFixed(2)}MB of ${(
+          ` ${(downloaded / 1024 / 1024).toFixed(2)}MB of ${(
             total /
             1024 /
             1024
-          ).toFixed(2)}MB)\n`
+          ).toFixed(2)}MB\n`
         );
         readline.moveCursor(process.stdout, 0, -1);
       });
       video.on("end", () => {
-        resolve();
+        resolve(output);
       });
     } catch (error) {
       reject(error);

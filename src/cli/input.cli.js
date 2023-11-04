@@ -9,12 +9,24 @@ const takeUserInput = async () => {
     {
       type: "input",
       name: "contentUrl",
-      message: chalk.bgCyan("Enter the video/playlist Url:"),
-      validate: async (url) => {
-        if (await youtubeService.isValidPlaylistId(url)) {
+      message: chalk.bgCyan("Enter the video/playlist Urls:"),
+      validate: async (urls) => {
+        const arr = urls.replace(/[ ]+/g, " ").split(" ");
+
+        let isAllValidPlaylistIds = await Promise.all(
+          arr.map(async (url) => await youtubeService.isValidPlaylistId(url))
+        );
+        isAllValidPlaylistIds = isAllValidPlaylistIds.every(
+          (isValid) => isValid
+        );
+        const isAllValidVideoIds = arr.every((url) =>
+          youtubeService.isValidVideoId(url)
+        );
+
+        if (isAllValidPlaylistIds) {
           contentType = "playlist";
           return true;
-        } else if (youtubeService.isValidVideoId(url)) {
+        } else if (isAllValidVideoIds) {
           contentType = "video";
           return true;
         } else {
