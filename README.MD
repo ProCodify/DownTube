@@ -1,57 +1,60 @@
-# DownTube
+# DownTube 🚀
 
-![](https://i.imgur.com/Jf2NauG.png)
-DownTube is a tool/ cli tool that download your favorite youtube song/playlist directly to mp3/mp4 format in your computer download folder. It can directly download your content using a video/playlist/channel link.
+![DownTube Logo](https://i.imgur.com/Jf2NauG.png)
 
-[**Note:** There is a usages limit to youtube api. So don't over use the program. wait some days to reset the usages limit]
+DownTube is a versatile tool that lets you download your favorite YouTube songs and playlists directly to your computer in MP3/MP4 format. With support for video, playlists, and channel links, it makes the downloading process a breeze.
 
-## Features
+Please note that there is a usage limit imposed by the YouTube API, so avoid excessive use. Be patient, and the limit will reset after some time.
 
-- Download youtube video directly
-- Download youtube playlist directly
-- Download all channel contents directly
-- Download directly in audio or video format
-- Auto organize download path
-- High speed download from youtube server
+## Features ✨
 
-## Installation
+🎵 Download your cherished YouTube songs and playlists to MP3/MP4 formats, effortlessly saving them to your computer's download folder.
 
-**CLI:**:
+📺 Grab content from YouTube, whether it's videos, playlists, or entire channels, with ease. [ Max video limit: 100]
 
-1. Download and install [Node.js](https://nodejs.org/en)
-2. Open terminal and run `npm i -g downtube`
+🎧 Choose your preferred audio or video format; it's all at your fingertips.
 
-or,
-**Tool:**
+📂 Keep your downloads organized with auto-organized download paths.
 
-1. Download the latest [release](https://github.com/ProCodify/DownTube/releases)
-1. Extract the files
-1. Open the executable file `DownTube.exe`
+🚀 Experience lightning-fast downloads directly from the YouTube server.
 
-## Usages
+## Installation 🛠️
 
-**CLI:**:
+**CLI**:
 
-1. Open terminal and run `downtube`
-1. Paste the youtube video/playlist link
-1. Select the video content [Video, Audio]
-1. Wait for download to finish
-1. Navigate to the shown path and find your files
+1. First, make sure you have [Node.js](https://nodejs.org/en) installed.
+1. Open your terminal and run `npm i -g downtube`.
 
-**Tool:**
+**Tool**:
 
-1. open the executable file `DownTube.exe`
-1. Paste the video/playlist link
-1. Select the content type [video/audio]
-1. Navigate to the shown path to find all your favorite music
+1. Download the latest [release](https://github.com/ProCodify/DownTube/releases).
+1. Extract the downloaded files.
+1. Open the executable file `DownTube.exe`.
 
-## Screenshots
+## Usage 📥
 
-![](https://i.imgur.com/cTSO9Lo.png)
-![](https://i.imgur.com/NwIQL2E.png)
+**CLI**:
 
-## Project Idea
+1. Open your terminal and run `downtube`.
+1. Paste the YouTube video or playlist link.
+1. Select the content type (Video or Audio).
+1. Wait for the download to complete.
+1. Navigate to the provided path to find your downloaded files.
 
-I used to travel a lot and sometimes the net goes off so I always had to manually download my favorite youtube songs and content from third-party websites. So I thought of making a cli tool to help me with the issue. Here is the project. But it is in beta version so you might find a lots of bug. Please let me know I'll fix them.
+**Tool**:
 
-Happy DowTube!
+1. Launch the executable file `DownTube.exe`.
+1. Paste the video or playlist link.
+1. Choose the content type (Video or Audio).
+1. Navigate to the shown path to access your downloaded content.
+
+## Screenshots 📸
+
+![Screenshot 1](https://i.imgur.com/cTSO9Lo.png)
+![Screenshot 2](https://i.imgur.com/NwIQL2E.png)
+
+## Project Idea 💡
+
+DownTube was born out of the need to have offline access to my favorite YouTube songs while traveling, especially when the internet was unreliable. I used to manually download content from third-party websites, which was a hassle. To simplify the process, I created this tool. It's currently in beta, so you may encounter some bugs. If you do, please let me know, and I'll work on fixing them.
+
+Happy Downloading with DownTube! 🎶📦 #DownTube
